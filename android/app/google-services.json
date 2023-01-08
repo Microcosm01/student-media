@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "314086732361",
+    "project_id": "student-media-taufeeq",
+    "storage_bucket": "student-media-taufeeq.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:314086732361:android:29023b61f5f2f4e26f4598",
+        "android_client_info": {
+          "package_name": "com.example.student_media"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "314086732361-ogr0ip5e0d33k9mtbvvs87j6sodr7vil.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_UXCLGdi91MgdW0O34NUWwETFL-aldQc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "314086732361-ogr0ip5e0d33k9mtbvvs87j6sodr7vil.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "314086732361-e9pnanvu08bc0g9dpdk9shggtf425qrk.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.studentMedia"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:314086732361:android:3003bb08cfa725a36f4598",
+        "android_client_info": {
+          "package_name": "com.example.student_media_firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "314086732361-ogr0ip5e0d33k9mtbvvs87j6sodr7vil.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_UXCLGdi91MgdW0O34NUWwETFL-aldQc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "314086732361-ogr0ip5e0d33k9mtbvvs87j6sodr7vil.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "314086732361-e9pnanvu08bc0g9dpdk9shggtf425qrk.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.studentMedia"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
