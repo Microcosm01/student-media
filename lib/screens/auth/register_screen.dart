@@ -186,7 +186,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           email: email, password: pass);
 
                       if (type == userType.faculty) {
-                        final data = {"name": name};
+                        final data = {"name": name, "email": _email.text};
                         final docRef = db
                             .collection('Faculty')
                             .doc(userId)

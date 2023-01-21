@@ -51,17 +51,20 @@ class _MainScreenState extends State<MainScreen> {
     const TodoHomePage(),
     const SocialHomePage(),
     const EventRegisterHomeScreen(),
-    const CollegeHomeScreen(),
+     CollegeHomeScreen(),
   ];
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        bottomNavigationBar: GNav(
-          duration: const Duration(milliseconds: 650),
-          rippleColor: Colors.purpleAccent,
-          tabs: tabs,
-          onTabChange: _onTap,
+        bottomNavigationBar: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: GNav(
+            duration: const Duration(milliseconds: 650),
+            rippleColor: Colors.purpleAccent,
+            tabs: tabs,
+            onTabChange: _onTap,
+          ),
         ),
         body: pages[currentIndex],
       ),

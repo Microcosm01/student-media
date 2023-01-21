@@ -3,9 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:student_media_firebase/constants/widgets/custom_text_field.dart';
 
-
-
-
+enum correctAns { option_1, option_2, option_3, option_4 }
 
 class CreateQuizScreen extends StatefulWidget {
   const CreateQuizScreen({super.key});
@@ -23,8 +21,7 @@ class _CreateQuizScreenState extends State<CreateQuizScreen> {
   final TextEditingController _option4 = TextEditingController();
   final db = FirebaseFirestore.instance;
   final _auth = FirebaseAuth.instance;
-
- 
+  correctAns? option = correctAns.option_1;
 
   @override
   void dispose() {
@@ -40,7 +37,7 @@ class _CreateQuizScreenState extends State<CreateQuizScreen> {
   Widget build(BuildContext context) {
     final userId = _auth.currentUser?.uid;
     final docRef = db.collection('Faculty').doc(userId).collection('Quiz');
-    // int option = options[0];
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Create a Quiz for students'),
@@ -89,52 +86,60 @@ class _CreateQuizScreenState extends State<CreateQuizScreen> {
           const SizedBox(
             height: 35,
           ),
-          
-          // Expanded(
-          //   child: RadioListTile(
-          //       title: const Text('option 1'),
-          //       value: options[0],
-          //       groupValue: options,
-          //       onChanged: (value) {
-          //         setState(() {
-          //           option = int.parse(value.toString());
-          //         });
-          //       }),
-          // ),
-          // Expanded(
-          //   child: RadioListTile(
-          //       title: const Text('option 2'),
-          //       value: options[1],
-          //       groupValue: options,
-          //       onChanged: (value) {
-          //         setState(() {
-          //           option = int.parse(value.toString());
-          //         });
-          //         print(option);
-          //       }),
-          // ),
-          // Expanded(
-          //   child: RadioListTile(
-          //       title: const Text('option 3'),
-          //       value: options[2],
-          //       groupValue: options,
-          //       onChanged: (value) {
-          //         setState(() {
-          //           option = int.parse(value.toString());
-          //         });
-          //       }),
-          // ),
-          // Expanded(
-          //   child: RadioListTile(
-          //       title: const Text('option 4'),
-          //       value: options[3],
-          //       groupValue: options,
-          //       onChanged: (value) {
-          //         setState(() {
-          //           option = int.parse(value.toString());
-          //         });
-          //       }),
-          // ),
+
+          Row(
+            children: [
+              Expanded(
+                child: RadioListTile(
+                    title: const Text('option 1'),
+                    value: correctAns.option_1,
+                    groupValue: option,
+                    onChanged: (correctAns? ans) {
+                      setState(() {
+                        option = ans;
+                      });
+                    }),
+              ),
+              Expanded(
+                child: RadioListTile(
+                    title: const Text('option 2'),
+                    value: correctAns.option_2,
+                    groupValue: option,
+                    onChanged: (value) {
+                      setState(() {
+                        option = value;
+                      });
+                      print(option);
+                    }),
+              ),
+            ],
+          ),
+          Row(
+            children: [
+              Expanded(
+                child: RadioListTile(
+                    title: const Text('option 3'),
+                    value: correctAns.option_3,
+                    groupValue: option,
+                    onChanged: (value) {
+                      setState(() {
+                        option = value;
+                      });
+                    }),
+              ),
+              Expanded(
+                child: RadioListTile(
+                    title: const Text('option 4'),
+                    value: correctAns.option_4,
+                    groupValue: option,
+                    onChanged: (value) {
+                      setState(() {
+                        option = value;
+                      });
+                    }),
+              ),
+            ],
+          ),
 
           // TODO: Implement Last day via Date picker package
           ElevatedButton(
@@ -145,8 +150,9 @@ class _CreateQuizScreenState extends State<CreateQuizScreen> {
                   "option-2": _option2.text,
                   "option-3": _option3.text,
                   "option-4": _option4.text,
-                  "correct-answer": _option2.text,
+                  "correct-answer": option,
                 };
+                
                 await docRef.doc().set(data);
                 Navigator.of(context).pushNamed('/facultyHome');
               },
